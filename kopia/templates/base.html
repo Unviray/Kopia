@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ url('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url('static', filename='css/material-icons.css') }}">
+
+    {% block style %}{% endblock %}
+
+    <title>{% block title %}Kopia{% endblock title %}</title>
+</head>
+
+<body class="d-flex flex-column">
+
+    {% block body %}
+    {% include "includes/navbar.html" %}
+
+    <div class="container mt-3">
+        {% block container %}
+        {% endblock container %}
+    </div>
+    {% include "includes/footer.html" %}
+    {% endblock body %}
+
+    {% include "includes/toast.html" %}
+
+    <script src="{{ url('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('static', filename='js/cleave.min.js') }}"></script>
+    <script src="{{ url('static', filename='js/cleave-phone.mg.js') }}"></script>
+    <script src="{{ url('static', filename='js/Chart.min.js') }}"></script>
+
+    <script>
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl);
+        });
+
+        for (let i = 0; i < toastList.length; i++) {
+            let t = toastList[i];
+            t._config.delay = 5000;
+            t.show();
+        }
+
+    </script>
+
+    {% block script %}
+    {% endblock %}
+
+</body>
+
+</html>

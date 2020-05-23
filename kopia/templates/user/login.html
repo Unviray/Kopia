@@ -1,0 +1,49 @@
+{% extends 'base_login.html' %}
+
+
+{% block content %}
+<form method="post" novalidate>
+    {{ form.csrf_token }}
+    {% if form.errors %}
+    {% for error in form.errors %}
+    {% if error != 'csrf_token' %}
+    <div class="alert alert-danger" role="alert">
+        <ul class="mb-0">
+            {% for e in form.errors[error] %}
+            <li>
+                {{ e }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    <div class="mb-3">
+        {{ form.ID.label }}
+        {% if form.ID.errors %}
+        {{ form.ID(class="form-control is-invalid") }}
+        {% else %}
+        {{ form.ID(class="form-control") }}
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        {{ form.name.label }}
+        {% if form.name.errors %}
+        {{ form.name(class="form-control is-invalid") }}
+        {% else %}
+        {{ form.name(class="form-control") }}
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        {{ form.birth.label }}
+        {% if form.birth.errors %}
+        {{ form.birth(class="form-control is-invalid") }}
+        {% else %}
+        {{ form.birth(class="form-control") }}
+        {% endif %}
+    </div>
+    <button class="btn btn-primary" type="submit">Hiditra</button>
+</form>
+{% endblock content %}

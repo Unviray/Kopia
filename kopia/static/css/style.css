@@ -1,0 +1,80 @@
+.m-list {
+    height: 300px;
+}
+
+.mini {
+    font-size: small;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#emblem {
+    border: 2px solid #00000000;
+}
+
+#emblem:hover {
+    border: 2px solid #2d00cfa9;
+}
+
+.filter:hover {
+    color: #000000 !important;
+}
+
+@media (min-width: 992px) {
+    .profile-title {
+        max-height: 106px;
+    }
+}
+
+
+.bd-navbar {
+    position: relative;
+    z-index: 1020;
+    background-color: rgba(255, 255, 255, 0.75);
+    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 768px) {
+    .bd-navbar {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+    }
+}
+
+.bd-footer {
+    font-size: 0.875rem;
+    color: #63707c;
+}
+
+.bd-footer a {
+    font-weight: 600;
+    color: #495057;
+}
+
+.bd-footer a:hover,
+.bd-footer a:focus {
+    color: #0d6efd;
+}
+
+.bd-footer p {
+    margin-bottom: 0;
+}
+
+.bd-footer-links {
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+.bd-footer-links li {
+    display: inline-block;
+}
+
+.bd-footer-links li+li {
+    margin-left: 1rem;
+}

@@ -1,0 +1,2 @@
+recursive-include kopia/templates *
+recursive-include kopia/static *
