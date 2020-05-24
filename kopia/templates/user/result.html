@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('static', filename='css/style.css') }}">
+    <title>Kopia</title>
+</head>
+
+<body class="d-flex flex-column">
+    <div class="row mb-5" id="head">
+        <div class="col-3">
+            s
+        </div>
+        <div class="col-9 text-center">
+            <h1 class="lead mb-0 font-weight-bold">KOPIAN'NY SORA-PIANKOHONANA</h1>
+            <p class="lead">----------------</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <ul class="list-unstyled mb-5">
+                <li>FAHA: {{ user['ID'] }}</li>
+                <li>{{ user['birth_date'] }}</li>
+                <li>FAHATERAHANA</li>
+                <li class="font-weight-bold">{{ user['full_name'] }}</li>
+            </ul>
+            <div>
+                <p>Tsy asiana hajia araka ny and. 416-n'ny CGET.</p>
+                <ul class="list-unstyled">
+                    <li>Droit: 500Ar</li>
+                    <li>QttNº 0337629/A</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-9">
+            <p>Nalaina tamin'ny bokim-piankohonana, taona {{ user['writing_date'].year|to_text }}, voatahiry ato amin'ny
+                Kaominina {{ user['commune'] }}, izao soratra izao:</p>
+
+            <p>Tamin'ny {{ user['birth_date']|to_text }} no teraka tao {{ user['birth_place'] }} Kaominina
+                {{ user['commune'] }}: <strong>{{ user['full_name'] }}</strong>, <strong>{{ user['gender'] }}</strong>
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur iure ipsam dolorum, voluptate at
+                placeat
+                itaque vero vitae sunt corporis perspiciatis fuga, deserunt quidem excepturi modi. Architecto laboriosam
+                nulla odit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo explicabo recusandae quaerat
+                nulla laboriosam? Nihil deserunt laboriosam, officia, similique debitis natus nam mollitia dolorum
+                accusantium hic tempore asperiores corrupti suscipit.</p>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur iure ipsam dolorum, voluptate at placeat
+                itaque vero vitae sunt corporis perspiciatis fuga, deserunt quidem excepturi modi. Architecto laboriosam
+                nulla odit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo explicabo recusandae quaerat
+                nulla laboriosam? Nihil deserunt laboriosam, officia, similique debitis natus nam mollitia dolorum
+                accusantium hic tempore asperiores corrupti suscipit.</p>
+
+            <p class="lead text-center mt-5">--- MANARAKA IREO SONIA ---</p>
+
+        </div>
+    </div>
+</body>
+
+</html>

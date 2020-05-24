@@ -15,6 +15,7 @@ from wtforms import (
     DateField,
     IntegerField,
     StringField,
+    PasswordField,
 )
 
 from tinydb import Query
@@ -96,3 +97,14 @@ class UserLoginForm(FlaskForm):
         app.logger.info(field.data)
         if field.data != result:
             raise ValidationError(f"Tsy tamin'io no teraka i {self.name.data}")
+
+
+class ModeratorLoginForm(FlaskForm):
+    nickname = StringField("Solon'anarana")
+    password = PasswordField('Tenimiafina')
+
+    def validate_nickname(self, field):
+        pass
+
+    def validate_password(self, field):
+        pass

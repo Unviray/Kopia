@@ -60,3 +60,12 @@ def login_required(func):
             return redirect(url('main.login'))
         return func(*args, **kwargs)
     return wrapped
+
+
+def login_admin_required(func):
+    @wraps(func)
+    def wrapped(*args, **kwargs):
+        if not session.get('userId', None):
+            return redirect(url('admin.login'))
+        return func(*args, **kwargs)
+    return wrapped

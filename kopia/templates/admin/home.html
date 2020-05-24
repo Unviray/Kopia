@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+
+{% block container %}
+<div class="row">
+    <div class="col-md-4">
+        <h3 class="d-flex">
+            User list
+            <button class="btn btn-primary ml-auto d-flex" type="button" data-toggle="modal" data-target="#newUser">
+                <i class="material-icons">add</i>
+            </button>
+        </h3>
+        {% for item in db %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Nº: {{item['ID']}}</h5>
+                <p class="card-text">anarana: {{item['full_name']}}</p>
+                <p class="card-text">writing_date: {{item['writing_date']}}</p>
+                <p class="card-text">birth_date: {{item['birth_date']}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-md-4">
+        <h3 class="d-flex">
+            Request list
+            <button class="btn btn-primary ml-auto d-flex" type="button" data-toggle="modal" data-target="#newRequest">
+                <i class="material-icons">add</i>
+            </button>
+        </h3>
+        {% for item in rdb %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">from: {{item['from']}}</h5>
+                <p class="card-text">date: {{item['date']}}</p>
+                <p class="card-text">req_id: {{item['req_id']}}</p>
+                <p class="card-text">reason: {{item['reason']}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-md-4">
+        <h3 class="d-flex">
+            Moderator list
+            <button class="btn btn-primary ml-auto d-flex" type="button" data-toggle="modal"
+                data-target="#newModerator">
+                <i class="material-icons">add</i>
+            </button>
+        </h3>
+        <div class="alert alert-danger" role="alert">
+            Password: stored in clear format for testing
+        </div>
+        {% for item in mdb %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">from: {{item['nickname']}}</h5>
+                <p class="card-text">password: {{ item['password'] }}</p>
+                <p class="card-text">worker_on: {{ item['worker_on'] }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<div id="newUser" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="newUser-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newUser-title">Title</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <input type="hidden" name="pointing" value="user">
+                    <div class="mb-3">
+                        <label for="id">ID</label>
+                        <input class="form-control" type="text" name="id" id="id">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name">Full name</label>
+                        <input class="form-control" type="text" name="name" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="b_date">Birth Date</label>
+                        <input class="form-control" type="date" name="b_date" id="b_date">
+                    </div>
+                    <div class="mb-3">
+                        <label for="b_place">Birth Place</label>
+                        <input class="form-control" type="text" name="b_place" id="b_place">
+                    </div>
+                    <div class="mb-3">
+                        <label for="commune">Commune</label>
+                        <input class="form-control" type="text" name="commune" id="commune">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" class="form-control" name="gender">
+                                <option>Male</option>
+                                <option>female</option>
+                            </select>
+                        </div>
+                    </div>
+                    {#
+                    <div class="mb-3">
+                        <label for="parent">parent</label>
+                        <input class="form-control" type="text" name="parent" id="parent"
+                            placeholder="ID of parent ex: 123, 34">
+                    </div>
+                    <div class="mb-3">
+                        <label for="job">Job</label>
+                        <input class="form-control" type="text" name="job" id="job">
+                    </div>
+                    <hr>
+                    <div class="mb-3">
+                        <label for="w_date">Writing date</label>
+                        <input class="form-control" type="date" name="w_date" id="w_date">
+                    </div>
+                    <div class="mb-3">
+                        <label for="writer">Writer</label>
+                        <input class="form-control" type="text" name="writer" id="writer">
+                    </div>
+                    <div class="mb-3">
+                        <label for="w_validator">Writing validator</label>
+                        <input class="form-control" type="text" name="w_validator" id="w_validator">
+                    </div>
+                    #}
+                    <button class="btn btn-primary btn-block" type="submit">Hampidirina</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="newRequest" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="newRequest-title"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newRequest-title">Title</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Content</p>
+            </div>
+            <div class="modal-footer">
+                Footer
+            </div>
+        </div>
+    </div>
+</div>
+<div id="newModerator" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="newModerator-title"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newModerator-title">Title</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Content</p>
+            </div>
+            <div class="modal-footer">
+                Footer
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock container %}

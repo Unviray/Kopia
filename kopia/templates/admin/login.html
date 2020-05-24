@@ -1,0 +1,20 @@
+{% extends 'base_login.html' %}
+
+
+{% block content %}
+<div class="alert alert-secondary" role="alert">
+    Just for testing. Username: admin, Password: admin
+</div>
+<form method="post">
+    <div class="mb-3">
+        <label for="username">Username</label>
+        <input class="form-control" type="text" name="username" id="username">
+    </div>
+    <div class="mb-3">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" id="password">
+    </div>
+
+    <button class="btn btn-primary" type="submit">Hiditra</button>
+</form>
+{% endblock content %}

@@ -1,1 +1,47 @@
 {% extends 'base.html' %}
+
+
+{% block container %}
+<button class="btn btn-block btn-primary" type="button" data-toggle="modal" data-target="#confirm">
+    Handefa fangatahana Kopian'ny sora-piankohonana
+</button>
+<h2 class="h2 mt-4">Fangatahana</h2>
+<hr>
+<div class="row justify-content-center">
+    {% for req in req_list %}
+    <div class="col-md-3 mb-3">
+        <a href="{{ url('main.result', req_id=req['req_id']) }}" class="text-reset text-decoration-none">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ req['date'] }}</h5>
+                    <p class="card-text">{{ req['reason'] }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+
+<div id="confirm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirm-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirm-title">Fangatahana</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Lazao eto ambany ny antony anaovanao fangatahana kopia</p>
+                <form method="post">
+                    <div class="form-group">
+                        <textarea class="form-control" name="reason" rows="3"></textarea>
+                    </div>
+                    <button class="btn btn-block btn-primary mt-3" type="submit">Handefa</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock container %}

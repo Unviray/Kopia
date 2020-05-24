@@ -7,10 +7,11 @@ Root of entire project include app factory (create_app).
 
 from flask import Flask
 
+from . import tag_filter
 from . import ctx_processor
 from . import database
 
-from .views import main, error
+from .views import main, moderator, admin, error
 
 
 def create_app():
@@ -22,6 +23,7 @@ def create_app():
     database.init_app(app)
 
     load_views(app)
+    load_template_filter(app)
     load_context_processor(app)
     load_error_page(app)
 
@@ -31,6 +33,13 @@ def create_app():
 def load_views(app):
     app.register_blueprint(main.blueprint)
     app.add_url_rule('/', endpoint='home')
+
+    app.register_blueprint(moderator.blueprint)
+    app.register_blueprint(admin.blueprint)
+
+
+def load_template_filter(app):
+    app.add_template_filter(tag_filter.to_text)
 
 
 def load_context_processor(app):
